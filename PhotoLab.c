@@ -24,6 +24,8 @@
 #include "Image.h"
 
 
+/* change */
+
 /*** function declarations ***/
 
 /* print a menu */
