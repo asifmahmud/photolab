@@ -1,0 +1,355 @@
+Script started on Tue 25 Nov 2014 10:27:22 PM PST
+crystalcove% make PhotoLab
+gcc -Wall -ansi -c PhotoLab.c -g -o PhotoLab.o
+PhotoLab.c:3:1: warning: "/*" within comment
+PhotoLab.c: In function ‘main’:
+PhotoLab.c:162: warning: format ‘%80s’ expects type ‘char *’, but argument 2 has type ‘char (*)[80]’
+make: Circular PhotoLab <- PhotoLab dependency dropped.
+gcc   PhotoLab.o FileIO.o DIPs.o Advanced.o Image.o   -o PhotoLab
+crystalcove% ./photo[K[K[K[K[KPhotoLab
+--------------------------------
+ 1:  Load a PPM image
+ 2:  Save an image in PPM and JPEG format
+ 3:  Change a color image to Black & White
+ 4:  Flip an image vertically
+ 5:  Mirror an image horizontally
+ 6:  Color filter an image
+ 7:  Sketch the edge of an image
+ 8:  Shuffle an image
+ 9:  Posterize an Image
+ 10: Fill Lights to an image 
+ 11: Overlay an image
+ 12: Bonus, Cut and Paste operation on image
+ 13: Resize the image
+ 14: Rotate 90 degrees clockwise
+ 15: Generate the Mandelbrot image
+ 16: Bonus, Add border outside the image
+ 17: Test all functions
+ 18: Exit
+please make your choice: 1
+Please input the file name to load: RingMall
+--------------------------------
+ 1:  Load a PPM image
+ 2:  Save an image in PPM and JPEG format
+ 3:  Change a color image to Black & White
+ 4:  Flip an image vertically
+ 5:  Mirror an image horizontally
+ 6:  Color filter an image
+ 7:  Sketch the edge of an image
+ 8:  Shuffle an image
+ 9:  Posterize an Image
+ 10: Fill Lights to an image 
+ 11: Overlay an image
+ 12: Bonus, Cut and Paste operation on image
+ 13: Resize the image
+ 14: Rotate 90 degrees clockwise
+ 15: Generate the Mandelbrot image
+ 16: Bonus, Add border outside the image
+ 17: Test all functions
+ 18: Exit
+please make your choice: 3
+"Black & White" operation is done!
+--------------------------------
+ 1:  Load a PPM image
+ 2:  Save an image in PPM and JPEG format
+ 3:  Change a color image to Black & White
+ 4:  Flip an image vertically
+ 5:  Mirror an image horizontally
+ 6:  Color filter an image
+ 7:  Sketch the edge of an image
+ 8:  Shuffle an image
+ 9:  Posterize an Image
+ 10: Fill Lights to an image 
+ 11: Overlay an image
+ 12: Bonus, Cut and Paste operation on image
+ 13: Resize the image
+ 14: Rotate 90 degrees clockwise
+ 15: Generate the Mandelbrot image
+ 16: Bonus, Add border outside the image
+ 17: Test all functions
+ 18: Exit
+please make your choice: 2
+Please input the file name to save: bw
+--------------------------------
+ 1:  Load a PPM image
+ 2:  Save an image in PPM and JPEG format
+ 3:  Change a color image to Black & White
+ 4:  Flip an image vertically
+ 5:  Mirror an image horizontally
+ 6:  Color filter an image
+ 7:  Sketch the edge of an image
+ 8:  Shuffle an image
+ 9:  Posterize an Image
+ 10: Fill Lights to an image 
+ 11: Overlay an image
+ 12: Bonus, Cut and Paste operation on image
+ 13: Resize the image
+ 14: Rotate 90 degrees clockwise
+ 15: Generate the Mandelbrot image
+ 16: Bonus, Add border outside the image
+ 17: Test all functions
+ 18: Exit
+please make your choice: 13
+Please input the resizing percentage (integer between 1 to 500): 175
+"Resizing the image" operation is done!
+--------------------------------
+ 1:  Load a PPM image
+ 2:  Save an image in PPM and JPEG format
+ 3:  Change a color image to Black & White
+ 4:  Flip an image vertically
+ 5:  Mirror an image horizontally
+ 6:  Color filter an image
+ 7:  Sketch the edge of an image
+ 8:  Shuffle an image
+ 9:  Posterize an Image
+ 10: Fill Lights to an image 
+ 11: Overlay an image
+ 12: Bonus, Cut and Paste operation on image
+ 13: Resize the image
+ 14: Rotate 90 degrees clockwise
+ 15: Generate the Mandelbrot image
+ 16: Bonus, Add border outside the image
+ 17: Test all functions
+ 18: Exit
+please make your choice: 2
+Please input the file name to save: bigresize
+--------------------------------
+ 1:  Load a PPM image
+ 2:  Save an image in PPM and JPEG format
+ 3:  Change a color image to Black & White
+ 4:  Flip an image vertically
+ 5:  Mirror an image horizontally
+ 6:  Color filter an image
+ 7:  Sketch the edge of an image
+ 8:  Shuffle an image
+ 9:  Posterize an Image
+ 10: Fill Lights to an image 
+ 11: Overlay an image
+ 12: Bonus, Cut and Paste operation on image
+ 13: Resize the image
+ 14: Rotate 90 degrees clockwise
+ 15: Generate the Mandelbrot image
+ 16: Bonus, Add border outside the image
+ 17: Test all functions
+ 18: Exit
+please make your choice: 18
+crystalcove% make PhotoLabTest
+gcc -Wall -ansi -DDEBUG -g -c PhotoLab.c -o PhotoLabTest.o 
+PhotoLab.c:3:1: warning: "/*" within comment
+PhotoLab.c: In function ‘main’:
+PhotoLab.c:162: warning: format ‘%80s’ expects type ‘char *’, but argument 2 has type ‘char (*)[80]’
+PhotoLab.c:72: warning: ‘image’ is used uninitialized in this function
+make: Circular PhotoLabTest <- PhotoLabTest dependency dropped.
+gcc -Wall -ansi -DDEBUG -c FileIO.c -o FileIOdebug.o
+gcc -Wall -ansi -DDEBUG -c DIPs.c -o DIPsdebug.o
+gcc -Wall -ansi -c -DDEBUG Advanced.c -o Advanceddebug.o
+Advanced.c:8: warning: conflicting types for built-in function ‘pow’
+Advanced.c: In function ‘Posterize’:
+Advanced.c:25: warning: suggest parentheses around ‘-’ inside ‘<<’
+Advanced.c:28: warning: suggest parentheses around ‘-’ inside ‘<<’
+Advanced.c:31: warning: suggest parentheses around ‘-’ inside ‘<<’
+Advanced.c: In function ‘FillLight’:
+Advanced.c:40: warning: implicit declaration of function ‘srand’
+Advanced.c:51: warning: implicit declaration of function ‘rand’
+Advanced.c: In function ‘Overlay’:
+Advanced.c:235: warning: implicit declaration of function ‘malloc’
+Advanced.c:235: warning: incompatible implicit declaration of built-in function ‘malloc’
+gcc -Wall -ansi -DDEBUG -c Image.c -o Imagedebug.o
+gcc   PhotoLabTest.o FileIOdebug.o DIPsdebug.o Advanceddebug.o Imagedebug.o   -o PhotoLabTest
+crystalcove% ./PhotoLabTest
+RingMall.ppm was read successfully!
+bw.ppm was saved successfully. 
+bw.jpg was stored for viewing. 
+Black & White tested!
+
+RingMall.ppm was read successfully!
+vflip.ppm was saved successfully. 
+vflip.jpg was stored for viewing. 
+VFlip tested!
+
+RingMall.ppm was read successfully!
+hmirror.ppm was saved successfully. 
+hmirror.jpg was stored for viewing. 
+HMirror tested!
+
+RingMall.ppm was read successfully!
+colorfilter.ppm was saved successfully. 
+colorfilter.jpg was stored for viewing. 
+ColorFilter tested!
+
+RingMall.ppm was read successfully!
+edge.ppm was saved successfully. 
+edge.jpg was stored for viewing. 
+Edge tested!
+
+RingMall.ppm was read successfully!
+shuffle.ppm was saved successfully. 
+shuffle.jpg was stored for viewing. 
+Shuffle tested!
+
+RingMall.ppm was read successfully!
+poster.ppm was saved successfully. 
+poster.jpg was stored for viewing. 
+Posterize tested!
+
+RingMall.ppm was read successfully!
+light.ppm was saved successfully. 
+light.jpg was stored for viewing. 
+FillLight tested!
+
+RingMall.ppm was read successfully!
+Peter.ppm was read successfully!
+overlay_peter.ppm was saved successfully. 
+overlay_peter.jpg was stored for viewing. 
+Overlay with the same image sizes tested!
+
+RingMall.ppm was read successfully!
+Spider.ppm was read successfully!
+overlay_spider.ppm was saved successfully. 
+overlay_spider.jpg was stored for viewing. 
+Overlay with the same image sizes tested!
+
+RingMall.ppm was read successfully!
+bigresize.ppm was saved successfully. 
+bigresize.jpg was stored for viewing. 
+Resizing for big tested!
+
+RingMall.ppm was read successfully!
+smallresize.ppm was saved successfully. 
+smallresize.jpg was stored for viewing. 
+Resizing for small tested!
+
+RingMall.ppm was read successfully!
+rotate.ppm was saved successfully. 
+rotate.jpg was stored for viewing. 
+Rotate 90 degrees clockwise tested!
+
+RingMall.ppm was read successfully!
+mandelbrot.ppm was saved successfully. 
+mandelbrot.jpg was stored for viewing. 
+Generate the mandelbrot image tested!
+
+crystalcove% ./PhotoLabTest[14Dmake PhotoLabTest[17D./PhotoLab[K[10Dmake PhotoLab[13Dexit[Kclear[5Dls[Kcd hw4..[Kp Spider_orig.ppm ~/eecs22/hw4[31Dmv Spider.ppm Spider_orig.ppm[K[29Dcd hw3[K[5Dp Peter_orig.ppm ~/eecs22/hw4[29Dd hw3[K[6Dmv Spider.ppm Spider_orig.ppm[29Dcp Spider_orig.ppm ~/eecs22/hw4[30Dd ..[Khw4[6Dls[Kclear[5Dexit[Kmake PhotoLab[13D./PhotoLab[K[10Dmake PhotoLabTest[17D./PhotoLabTest[K[14Dmake PhotoLabTest[17D./PhotoLabTest[K[14D[K./PhotoLabTest[14Dmake PhotoLabTest[17D./PhotoLab[K[10Dmake PhotoLab[13Dexit[Kclear[5Dls[Kcd hw4..[Kp Spider_orig.ppm ~/eecs22/hw4[31Dmv Spider.ppm Spider_orig.ppm[K[29Dcd hw3[K[5Dp Peter_orig.ppm ~/eecs22/hw4[30Dmv Peter.ppm Peter_orig.ppm[K[26Dake clean[K[10Dcp Makefile ~/eecs22/hw4[21DDIPs.h ~/eecs22/hw4[K[19DAdvanced.h Advanced.c Constants.h DIPs.c DIPS.h ~/eecs22/hw4[60DPhotoLab.c ~/eecs22/hw4[K[23DAdvanced.h Advanced.c Constants.h DIPs.c DIPS.h ~/eecs22/hw4[60DDIPs.h ~/eecs22/hw4[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kvalgrind --leak-check=full PhotoLabTest
+==24156== Memcheck, a memory error detector
+==24156== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==24156== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==24156== Command: PhotoLabTest
+==24156== 
+RingMall.ppm was read successfully!
+bw.ppm was saved successfully. 
+bw.jpg was stored for viewing. 
+Black & White tested!
+
+RingMall.ppm was read successfully!
+==24156== Invalid read of size 1
+==24156==    at 0x4046EF: GetPixelR (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4022A1: VFlip (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012EA: AutoTest (PhotoLab.c:253)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156==  Address 0x4d6c140 is 0 bytes after a block of size 320,000 alloc'd
+==24156==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==24156==    by 0x404AA5: CreateImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x401C3F: ReadImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012D4: AutoTest (PhotoLab.c:252)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156== 
+==24156== Invalid write of size 1
+==24156==    at 0x404904: SetPixelR (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4022DB: VFlip (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012EA: AutoTest (PhotoLab.c:253)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156==  Address 0x4d6c140 is 0 bytes after a block of size 320,000 alloc'd
+==24156==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==24156==    by 0x404AA5: CreateImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x401C3F: ReadImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012D4: AutoTest (PhotoLab.c:252)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156== 
+==24156== Invalid read of size 1
+==24156==    at 0x40479E: GetPixelG (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4022F8: VFlip (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012EA: AutoTest (PhotoLab.c:253)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156==  Address 0x4dba380 is 0 bytes after a block of size 320,000 alloc'd
+==24156==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==24156==    by 0x404AC1: CreateImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x401C3F: ReadImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012D4: AutoTest (PhotoLab.c:252)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156== 
+==24156== Invalid write of size 1
+==24156==    at 0x4049B3: SetPixelG (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x402332: VFlip (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012EA: AutoTest (PhotoLab.c:253)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156==  Address 0x4dba380 is 0 bytes after a block of size 320,000 alloc'd
+==24156==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==24156==    by 0x404AC1: CreateImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x401C3F: ReadImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012D4: AutoTest (PhotoLab.c:252)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156== 
+==24156== Invalid read of size 1
+==24156==    at 0x40484D: GetPixelB (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x40234F: VFlip (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012EA: AutoTest (PhotoLab.c:253)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156==  Address 0x4e085c0 is 0 bytes after a block of size 320,000 alloc'd
+==24156==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==24156==    by 0x404ADD: CreateImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x401C3F: ReadImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012D4: AutoTest (PhotoLab.c:252)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156== 
+==24156== Invalid write of size 1
+==24156==    at 0x404A62: SetPixelB (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x402389: VFlip (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012EA: AutoTest (PhotoLab.c:253)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156==  Address 0x4e085c0 is 0 bytes after a block of size 320,000 alloc'd
+==24156==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==24156==    by 0x404ADD: CreateImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x401C3F: ReadImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x4012D4: AutoTest (PhotoLab.c:252)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+==24156== 
+--24156-- VALGRIND INTERNAL ERROR: Valgrind received a signal 11 (SIGSEGV) - exiting
+--24156-- si_code=80;  Faulting address: 0x0;  sp: 0x4030b6dd0
+
+valgrind: the 'impossible' happened:
+   Killed by fatal signal
+==24156==    at 0x3803EC04: vgPlain_arena_malloc (m_mallocfree.c:291)
+==24156==    by 0x38003C34: vgMemCheck_new_block (mc_malloc_wrappers.c:263)
+==24156==    by 0x3800409A: vgMemCheck_malloc (mc_malloc_wrappers.c:301)
+==24156==    by 0x3807A58A: vgPlain_scheduler (scheduler.c:1665)
+==24156==    by 0x380A5A29: run_a_thread_NORETURN (syswrap-linux.c:103)
+
+sched status:
+  running_tid=1
+
+Thread 1: status = VgTs_Runnable
+==24156==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==24156==    by 0x38BE866ECA: __fopen_internal (iofopen.c:76)
+==24156==    by 0x401E32: SaveImage (in /users/ugrad2/2014/summer/amahmud/eecs22/hw4/PhotoLabTest)
+==24156==    by 0x401326: AutoTest (PhotoLab.c:255)
+==24156==    by 0x400AE7: main (PhotoLab.c:72)
+
+
+Note: see also the FAQ in the source distribution.
+It contains workarounds to several common problems.
+In particular, if Valgrind aborted or crashed after
+identifying problems in your program, there's a good chance
+that fixing those problems will prevent Valgrind aborting or
+crashing, especially if it happened in m_mallocfree.c.
+
+If that doesn't help, please report this bug to: www.valgrind.org
+
+In the bug report, send all the above text, the valgrind
+version, and what OS and version you are using.  Thanks.
+
+crystalcove% make clean
+rm -f *.o *.jpg PhotoLab PhotoLabTest bw.ppm vflip.ppm hmirror.ppm shuffle.ppm edge.ppm colorfilter.ppm light.ppm overlay_peter.ppm poster.ppm overlay_spider.ppm cutPaste.ppm 
+crystalcove% exit
+exit
+
+Script done on Tue 25 Nov 2014 10:31:15 PM PST
