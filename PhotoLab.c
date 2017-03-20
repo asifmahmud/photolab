@@ -34,8 +34,7 @@ void	AutoTest(IMAGE *image);
 
 
 
-int	main()
-{
+int	main(){
 	/*
 	* Two dimensional arrays to hold the current image data. One array
 	* for each color component
@@ -68,142 +67,142 @@ int	main()
 	
 
 
-  int   isDebug = 0;
- 
-  #ifdef DEBUG
-        isDebug = 1;
-        AutoTest(image);
-  #endif
- 
-  if (!isDebug) {
-	FileNotRead = 1 ; 
-	PrintMenu();
-	printf("please make your choice: ");
-	scanf("%d", &choice);
-	while (choice != 18){
-		switch (choice){
-   
-		case 1:
-			printf("Please input the file name to load: ");
-			scanf("%s", fname);
-			image = ReadImage(fname);
-			break;
-      
-		case 2:
-			printf("Please input the file name to save: ");
-			scanf("%s", fname);
-			SaveImage(fname, image);
-			break;
-                
-		case 3:
-			image = BlackNWhite(image);
- 			printf("\"Black & White\" operation is done!\n");
-			break;
-      
-		case 4:
-			image = VFlip(image);
-			printf( "\"Vertically Flip\" operation is done!\n" );
-			break;
-                
-		case 5:
-			image = HMirror(image);
-			printf("\"Horizontally Mirror\" operation is done!\n");
-			break;
-              
-		case 6:
-			printf("Enter Red   component for the target color: ") ;
-			scanf("%d", &target_r) ;
-			printf("Enter Green component for the target color: ") ;
-			scanf("%d", &target_g) ;
-			printf("Enter Blue  component for the target color: ") ;
-			scanf("%d", &target_b) ;
-			printf("Enter threshold for the color difference: ") ;
-			scanf("%d", &threshold) ;
-			printf("Enter value for Red component in the target color: ") ;
-			scanf("%lf", &factor_r) ;
-			printf("Enter value for Green component in the target color: ") ;
-			scanf("%lf", &factor_g) ;
-			printf("Enter value for Blue  component in the target color: ") ;
-			scanf("%lf", &factor_b) ;
-			
-			image = ColorFilter(image, target_r, target_g, target_b, threshold, factor_r, factor_g,factor_b);
-			printf("\"Color Filter\" operation is done!\n");
-			break;
-                
-		case 8:
-			image = Shuffle(image);
-			printf("\"Shuffle\" operation is done!\n");
-			break;
-                
-		case 7:
-			image = Edge(image);
-			printf("\"Edge\" operation is done!\n");
-			break;
-                
-		case 17:
-			AutoTest(image); 
-			break;	
-      
-		case 9:
-			printf("Enter the number of posterization bits (1 to 8): ");
-			scanf("%d", &p_bits);
-			image = Posterize(image, p_bits);
-			printf("\"Posterize\" operation is done!\n");
-			break;
-			
-		case 10:
-			printf("Please input number of lights: ");
-			scanf("%d", &number);
-			printf("Please input the width of each light: ");
-			scanf("%d", &lightWidth);
-			image = FillLight(image, number, lightWidth);
-			printf("\"FillLight\" operation is done!\n");
-			break;
-			
-		case 11:
-			printf("Please input the file name for the second image: ");
-			scanf("%80s", &fname);
-			printf("Please input x coordinate of the overlay image: ");
-			scanf("%d", &x_offset);
-			printf("Please input y coordinate of the overlay image: ");
-			scanf("%d", &y_offset);
-			image = Overlay(fname, image, x_offset, y_offset);
-			printf("\"Overlay\" operation is done!\n");
-			break;
-			  
-		case 13:
-			printf("Please input the resizing percentage (integer between 1 to 500): ");
-			scanf("%d", &percentage);
-			image = Resize(percentage, image);
-			printf("\"Resizing the image\" operation is done!\n");
-			break;
-		
-		case 14:
-			image = Rotate(image);
-			printf("\"Rotate 90 degree clockwise\" operation is done!\n");
-			break;
-			 
-		case 15:
-			printf("Please input the width of the mandelbrot image: ");
-			scanf("%d", &m_width);
-			printf("Please input the height of the mandelbrot image: ");
-			scanf("%d", &m_height);
-			printf("Please input the max iteration for the mandelbrot calculation: ");
-			scanf("%d", &max_iteration);
-			image = Mandelbrot(m_width, m_height, max_iteration);
-			printf("\"Mandelbrot\" operation is done!\n");
-			break;
-         		
-		default:
-			printf("Invalid selection!\n");
-			break;
-		}
+	int   isDebug = 0;
 
+	#ifdef DEBUG
+		isDebug = 1;
+		AutoTest(image);
+	#endif
+
+	if (!isDebug) {
+		FileNotRead = 1 ; 
 		PrintMenu();
 		printf("please make your choice: ");
 		scanf("%d", &choice);
+		while (choice != 18){
+			switch (choice){
+
+			case 1:
+				printf("Please input the file name to load: ");
+				scanf("%s", fname);
+				image = ReadImage(fname);
+				break;
+		  
+			case 2:
+				printf("Please input the file name to save: ");
+				scanf("%s", fname);
+				SaveImage(fname, image);
+				break;
+					
+			case 3:
+				image = BlackNWhite(image);
+				printf("\"Black & White\" operation is done!\n");
+				break;
+		  
+			case 4:
+				image = VFlip(image);
+				printf( "\"Vertically Flip\" operation is done!\n" );
+				break;
+					
+			case 5:
+				image = HMirror(image);
+				printf("\"Horizontally Mirror\" operation is done!\n");
+				break;
+				  
+			case 6:
+				printf("Enter Red   component for the target color: ") ;
+				scanf("%d", &target_r) ;
+				printf("Enter Green component for the target color: ") ;
+				scanf("%d", &target_g) ;
+				printf("Enter Blue  component for the target color: ") ;
+				scanf("%d", &target_b) ;
+				printf("Enter threshold for the color difference: ") ;
+				scanf("%d", &threshold) ;
+				printf("Enter value for Red component in the target color: ") ;
+				scanf("%lf", &factor_r) ;
+				printf("Enter value for Green component in the target color: ") ;
+				scanf("%lf", &factor_g) ;
+				printf("Enter value for Blue  component in the target color: ") ;
+				scanf("%lf", &factor_b) ;
+				
+				image = ColorFilter(image, target_r, target_g, target_b, threshold, factor_r, factor_g,factor_b);
+				printf("\"Color Filter\" operation is done!\n");
+				break;
+					
+			case 8:
+				image = Shuffle(image);
+				printf("\"Shuffle\" operation is done!\n");
+				break;
+					
+			case 7:
+				image = Edge(image);
+				printf("\"Edge\" operation is done!\n");
+				break;
+					
+			case 17:
+				AutoTest(image); 
+				break;	
+		  
+			case 9:
+				printf("Enter the number of posterization bits (1 to 8): ");
+				scanf("%d", &p_bits);
+				image = Posterize(image, p_bits);
+				printf("\"Posterize\" operation is done!\n");
+				break;
+				
+			case 10:
+				printf("Please input number of lights: ");
+				scanf("%d", &number);
+				printf("Please input the width of each light: ");
+				scanf("%d", &lightWidth);
+				image = FillLight(image, number, lightWidth);
+				printf("\"FillLight\" operation is done!\n");
+				break;
+				
+			case 11:
+				printf("Please input the file name for the second image: ");
+				scanf("%80s", &fname);
+				printf("Please input x coordinate of the overlay image: ");
+				scanf("%d", &x_offset);
+				printf("Please input y coordinate of the overlay image: ");
+				scanf("%d", &y_offset);
+				image = Overlay(fname, image, x_offset, y_offset);
+				printf("\"Overlay\" operation is done!\n");
+				break;
+				  
+			case 13:
+				printf("Please input the resizing percentage (integer between 1 to 500): ");
+				scanf("%d", &percentage);
+				image = Resize(percentage, image);
+				printf("\"Resizing the image\" operation is done!\n");
+				break;
+			
+			case 14:
+				image = Rotate(image);
+				printf("\"Rotate 90 degree clockwise\" operation is done!\n");
+				break;
+				 
+			case 15:
+				printf("Please input the width of the mandelbrot image: ");
+				scanf("%d", &m_width);
+				printf("Please input the height of the mandelbrot image: ");
+				scanf("%d", &m_height);
+				printf("Please input the max iteration for the mandelbrot calculation: ");
+				scanf("%d", &max_iteration);
+				image = Mandelbrot(m_width, m_height, max_iteration);
+				printf("\"Mandelbrot\" operation is done!\n");
+				break;
+					
+			default:
+				printf("Invalid selection!\n");
+				break;
+			}
+
+			PrintMenu();
+			printf("please make your choice: ");
+			scanf("%d", &choice);
+		}
 	}
- }
 
 	return 0;
 }
