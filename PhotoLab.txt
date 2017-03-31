@@ -1,7 +1,10 @@
-Asif Mahmud EECS22 Assignment 4
+Asif Mahmud Assignment 4
+
+
 
 
 PhotoLab using dynamically allocated memory:
          
-         This version of PhotoLab is implemented with dynamically allocated memory instead of static arrays.
-         Struct is used to represent an IMAGE object, which is then passed to DIP functions as IMAGE pointer.
+         
+This version of PhotoLab is implemented with dynamically allocated memory instead of static arrays.
+     Struct is used to represent an IMAGE object, which is then passed to DIP functions as IMAGE pointer.

@@ -15,24 +15,6 @@ int Range(int value, int from, int to){
 		return 1;
 
 }
-/*
-void array_fill(unsigned char R[WIDTH][HEIGHT], unsigned char G[WIDTH][HEIGHT], unsigned char B[WIDTH][HEIGHT],
-	int red[160][125], int green[160][125], int blue[160][125], int width_from, int height_from, int width_to, int height_to){
-
-	int i, j;
-
-	for (i = width_from; i < width_to; i++){
-		for (j = height_from; j < height_to; j++){
-			R[i][j] = red[i][j];
-			G[i][j] = green[i][j];
-			B[i][j] = blue[i][j];
-
-		}
-
-	}
-
-
-}*/
 
 int in(int array[16], int value){
 	int i;
@@ -69,50 +51,32 @@ IMAGE *BlackNWhite(IMAGE *image){
 			SetPixelB(image, i, j, mod_value);
 		}
 	}
- return image;
+	return image;
 
 }
 
 
 IMAGE *VFlip(IMAGE *image){
 	unsigned int i, j;
-  unsigned int r_temp, b_temp, g_temp;
-  /*IMAGE *image_tmp = CreateImage(image->Width, image->Height); */
-/*
+	unsigned int r_temp, b_temp, g_temp;
+  
 	for (i = 0; i < (image->Width); i++){
 		for (j = 0; j < (image->Height) / 2; j++){
-			unsigned int r_temp = GetPixelR(image, i, j);
-			unsigned int g_temp = GetPixelG(image, i, j);
-			unsigned int b_temp = GetPixelB(image, i, j);
-      
-      SetPixelR(image, i, j, GetPixelR(image, i, image->Height - j));
-      SetPixelR(image, i, image->Height - j, r_temp);
-      SetPixelG(image, i, j, GetPixelG(image, i, image->Height - j));
-      SetPixelG(image, i, image->Height - j, g_temp);
-      SetPixelB(image, i, j, GetPixelB(image, i, image->Height - j));
-      SetPixelB(image, i, image->Height - j, b_temp);
+			r_temp = GetPixelR(image, i, image->Height - 1 - j);
+			g_temp = GetPixelG(image, i, image->Height - 1 - j);
+			b_temp = GetPixelB(image, i, image->Height - 1 - j);
+			
+			SetPixelR(image, i, image->Height - 1 - j, GetPixelR(image, i, j));
+			SetPixelG(image, i, image->Height - 1 - j, GetPixelG(image, i, j));
+			SetPixelB(image, i, image->Height - 1 - j, GetPixelB(image, i, j));
+			
+			SetPixelR(image, i, j, r_temp);
+			SetPixelG(image, i, j, g_temp);
+			SetPixelB(image, i, j, b_temp);
 		}
 	}
-  /*DeleteImage(image);
-  image = NULL; */
   
-	for (i = 0; i < (image->Width); i++){
-		for (j = 0; j < (image->Height) / 2; j++){
-        r_temp = GetPixelR(image, i, image->Height - 1 - j);
-        g_temp = GetPixelG(image, i, image->Height - 1 - j);
-        b_temp = GetPixelB(image, i, image->Height - 1 - j);
-        
-        SetPixelR(image, i, image->Height - 1 - j, GetPixelR(image, i, j));
-        SetPixelG(image, i, image->Height - 1 - j, GetPixelG(image, i, j));
-        SetPixelB(image, i, image->Height - 1 - j, GetPixelB(image, i, j));
-        
-        SetPixelR(image, i, j, r_temp);
-        SetPixelG(image, i, j, g_temp);
-        SetPixelB(image, i, j, b_temp);
-    }
-  }
-  
-  return image;
+	return image;
 }
 
 
@@ -120,17 +84,17 @@ IMAGE *HMirror(IMAGE *image){
 	int i, j;
 	for (i = 0; i < (image->Width / 2); i++){
 		for (j = 0; j < image->Height; j++){
-      SetPixelR(image, i, j, GetPixelR(image, image->Width - 1 - i, j));
-		  SetPixelG(image, i, j, GetPixelG(image, image->Width - 1 - i, j));
-	    SetPixelB(image, i, j, GetPixelB(image, image->Width - 1 - i, j));
+			SetPixelR(image, i, j, GetPixelR(image, image->Width - 1 - i, j));
+			SetPixelG(image, i, j, GetPixelG(image, image->Width - 1 - i, j));
+			SetPixelB(image, i, j, GetPixelB(image, image->Width - 1 - i, j));
 		}
 	}
- return image;
+	return image;
 
 }
 
 IMAGE *ColorFilter(IMAGE *image, int target_r, int target_g, int target_b,
-int threshold, int replace_r, int replace_g, int replace_b){
+				   int threshold, int replace_r, int replace_g, int replace_b){
 
 	int i, j;
 	for (i = 0; i < image->Width; i++){
@@ -139,14 +103,14 @@ int threshold, int replace_r, int replace_g, int replace_b){
 				Range(GetPixelG(image, i, j), target_g - threshold, target_g + threshold) &&
 				Range(GetPixelB(image, i, j), target_b - threshold, target_b + threshold)) {
 
-        SetPixelR(image, i, j, replace_r);
+				SetPixelR(image, i, j, replace_r);
 				SetPixelG(image, i, j, replace_g);
 				SetPixelB(image, i, j, replace_b);
 
 			}
 		}
 	}
- return image;
+	return image;
 }
 
 
@@ -154,14 +118,14 @@ int threshold, int replace_r, int replace_g, int replace_b){
 IMAGE *Edge(IMAGE *image) {
 	int i, j = 0;
 	unsigned char *temp_r = (unsigned char*)malloc(sizeof(unsigned char) * (image->Width * image->Height));
-  unsigned char *temp_g = (unsigned char*)malloc(sizeof(unsigned char) * (image->Width * image->Height));
-  unsigned char *temp_b = (unsigned char*)malloc(sizeof(unsigned char) * (image->Width * image->Height));
+	unsigned char *temp_g = (unsigned char*)malloc(sizeof(unsigned char) * (image->Width * image->Height));
+	unsigned char *temp_b = (unsigned char*)malloc(sizeof(unsigned char) * (image->Width * image->Height));
 
 	/* Creating temporary image */
 
 	for (i = 0; i < image->Width; i++){
 		for (j = 0; j < image->Height; j++){
-      *(temp_r + (i + j * image->Width)) = GetPixelR(image, i, j);      
+			*(temp_r + (i + j * image->Width)) = GetPixelR(image, i, j);      
 			*(temp_g + (i + j * image->Width)) = GetPixelG(image, i, j);
 			*(temp_b + (i + j * image->Width)) = GetPixelB(image, i, j);
 		}
@@ -225,131 +189,31 @@ IMAGE *Edge(IMAGE *image) {
 
 	for (i = 1; i < image->Width - 1; i++){
 		for (j = 1; j < image->Height - 1; j++){
-      SetPixelR(image, i, j, *(temp_r + (i + j * image->Width)));
+			SetPixelR(image, i, j, *(temp_r + (i + j * image->Width)));
 			SetPixelG(image, i, j, *(temp_g + (i + j * image->Width)));
 			SetPixelB(image, i, j, *(temp_b + (i + j * image->Width)));
 
 		}
 
 	}
-  free(temp_r);
-  temp_r = NULL;
-  free(temp_g);
-  temp_g = NULL;
-  free(temp_b);
-  temp_b = NULL;
- return image;
+	free(temp_r);
+	temp_r = NULL;
+	free(temp_g);
+	temp_g = NULL;
+	free(temp_b);
+	temp_b = NULL;
+	return image;
 }
 
-/*
-IMAGE *Shuffle(IMAGE *image){
-
-	typedef struct {
-
-	int red[160][160];
-	int blue[160][125];
-	int green[160][125];
-
-} rgb_array;
-
-  rgb_array array_block[16];
-
-  int w  = 0;
-  int h = 0;
-  int w_to = 160;
-  int h_to = 125;
-  int i = 0;
-  int j, k;
-  while ((i < 16) && (w_to <= WIDTH) && (h_to <= HEIGHT)){
-	      for (j = 0 ;w < w_to; w++, j++){
-		        for (k = 0, h = h_to - 125; h < h_to; h++, k++){
-			          array_block[i].red[j][k] = R[w][h];
-                array_block[i].green[j][k] = G[w][h];
-			          array_block[i].blue[j][k] = B[w][h];
-             }
-        }
-  	    i++;
-        if (i == 4 || i == 8 || i == 12){
-	         w = 0;
-           w_to = 160;
-	         h_to += 125;
-        }
-        else{
-        w_to += 160;
-        }
-        
- }
-  srand(time(NULL));
-  int in_array[16];
-  for (i = 0; i < 16; i++)
-      in_array[i] = 99;
-  
-  int l, block_1, block_2;
-  for (l = 0; l < 8; l++){
-	 block_1 = rand() % 16;
-	 block_2 = rand() % 16;
-  
-
-   while ((in(in_array, block_1)) || (in(in_array, block_2)) || (block_1 == block_2)){
-	       block_1 = rand() % 16;
-	       block_2 = rand() % 16;
-   }
-
-
-               
-   int m, n;
-   for (m = 0; m < 160; m++){
-       for (n = 0; n < 125; n++){
-           int temp_1 = array_block[block_1].red[m][n];
-           int temp_2 = array_block[block_1].green[m][n];
-           int temp_3 = array_block[block_1].blue[m][n];
-           
-           array_block[block_1].red[m][n] = array_block[block_2].red[m][n];
-           array_block[block_1].green[m][n] = array_block[block_2].green[m][n];
-           array_block[block_1].blue[m][n] = array_block[block_2].blue[m][n];
-           
-           array_block[block_2].red[m][n] = temp_1;
-           array_block[block_2].green[m][n] = temp_2;
-           array_block[block_2].blue[m][n] = temp_3;
-       }
-   }
-   append(in_array, block_1, block_2);
-  }
-  
-  w  = 0;
-  h = 0;
-  w_to = 160;
-  h_to = 125;
-  i = 0;
-  j = k = 0;
-  while ((i < 16) && (w_to <= WIDTH) && (h_to <= HEIGHT)){
-	      for (j = 0 ;w < w_to; w++, j++){
-		        for (k = 0, h = h_to - 125; h < h_to; h++, k++){
-			          R[w][h] = array_block[i].red[j][k];
-                G[w][h] = array_block[i].green[j][k];
-			          B[w][h] = array_block[i].blue[j][k];
-             }
-        }
-  	    i++;
-        if (i == 4 || i == 8 || i == 12){
-	         w = 0;
-           w_to = 160;
-	         h_to += 125;
-        }
-        else{
-        w_to += 160;
-        }  
- }
-} */
 
 
 /*Shuffle the image*/
 IMAGE *Shuffle(IMAGE *image)
 {
-	int block_cnt = SHUFF_HEIGHT_DIV * SHUFF_WIDTH_DIV;
-	int block_width = image->Width/SHUFF_WIDTH_DIV;
+	int block_cnt    = SHUFF_HEIGHT_DIV * SHUFF_WIDTH_DIV;
+	int block_width  = image->Width/SHUFF_WIDTH_DIV;
 	int block_height = image->Height/SHUFF_HEIGHT_DIV;
-  int *block = (int*)malloc(sizeof(int) * (SHUFF_WIDTH_DIV * SHUFF_HEIGHT_DIV));
+	int *block       = (int*)malloc(sizeof(int) * (SHUFF_WIDTH_DIV * SHUFF_HEIGHT_DIV));
 	int i, j;
 	
 
@@ -364,47 +228,48 @@ IMAGE *Shuffle(IMAGE *image)
 	while (block_cnt > 0) {
 		/* Generate a random pair of blocks */
 		int dest_height = rand() % SHUFF_HEIGHT_DIV;
-		int dest_width = rand() % SHUFF_WIDTH_DIV;
-		int src_height = rand() % SHUFF_HEIGHT_DIV;
-		int src_width = rand() % SHUFF_WIDTH_DIV;
+		int dest_width  = rand() % SHUFF_WIDTH_DIV;
+		int src_height  = rand() % SHUFF_HEIGHT_DIV;
+		int src_width   = rand() % SHUFF_WIDTH_DIV;
 
 		/* Check if these blocks are already swaped, if not swap blocks */
-		if ((*(block + (dest_width + (dest_height*SHUFF_WIDTH_DIV))) == -1) && (*(block + (src_width + (src_height*SHUFF_WIDTH_DIV))) == -1)) {
+		if ((*(block + (dest_width + (dest_height*SHUFF_WIDTH_DIV))) == -1) && (*(block + (src_width + (src_height*    SHUFF_WIDTH_DIV))) == -1)) {
 			/* Swap blocks */
 			for (i = 0; i < block_height; i++) {
 				/* Init src and dest height offset */
 				int h_dest = ((dest_height * block_height) + i) % image->Height;
 				int h_src  = ((src_height * block_height) + i) % image->Height; 
-				for (j = 0; j < block_width; j++) {
+				
+				or (j = 0; j < block_width; j++) {
 					int temp;
 					/* Init src and dest width offset */
 					int w_src  = ((src_width * block_width) + j) % image->Width; 
 					int w_dest = ((dest_width * block_width) + j) % image->Width;
 
-          temp = GetPixelR(image, w_dest, h_dest);
-          SetPixelR(image, w_dest, h_dest, GetPixelR(image, w_src, h_src));
-          SetPixelR(image, w_src, h_src, temp);
-          
-          temp = GetPixelG(image, w_dest, h_dest);
-          SetPixelG(image, w_dest, h_dest, GetPixelG(image, w_src, h_src));
-          SetPixelG(image, w_src, h_src, temp);
-          
-          temp = GetPixelB(image, w_dest, h_dest);
-          SetPixelB(image, w_dest, h_dest, GetPixelB(image, w_src, h_src));
-          SetPixelB(image, w_src, h_src, temp);
+					temp = GetPixelR(image, w_dest, h_dest);
+					SetPixelR(image, w_dest, h_dest, GetPixelR(image, w_src, h_src));
+					SetPixelR(image, w_src, h_src, temp);
+				  
+					temp = GetPixelG(image, w_dest, h_dest);
+					SetPixelG(image, w_dest, h_dest, GetPixelG(image, w_src, h_src));
+					SetPixelG(image, w_src, h_src, temp);
+				  
+					temp = GetPixelB(image, w_dest, h_dest);
+					SetPixelB(image, w_dest, h_dest, GetPixelB(image, w_src, h_src));
+					SetPixelB(image, w_src, h_src, temp);
 
 				}
 			}
 			/* Set marker as done */
-      *(block + (dest_width + (dest_height*SHUFF_WIDTH_DIV))) = 1;
-      *(block + (src_width + (src_height*SHUFF_WIDTH_DIV))) = 1;
+			*(block + (dest_width + (dest_height*SHUFF_WIDTH_DIV))) = 1;
+			*(block + (src_width + (src_height*SHUFF_WIDTH_DIV))) = 1;
 			/* Decrease block count */
 			block_cnt -= 2; /* Two blocks are swapped */
 		}
 		
 	}
- free(block);
- block = NULL;
- return image;
+	free(block);
+	block = NULL;
+	return image;
 
 }

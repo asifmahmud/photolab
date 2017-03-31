@@ -1,15 +1,9 @@
-/* Asif Mahmud 70556749
+
 
 /*********************************************************************/
-/* PhotoLab.c: homework assignment #3, for EECS 22,  Fall 2014       */
-/*                                                                   */
-/* History:                                                          */
-/* 10/07/14 Manjunath MV  updated for EECS22 assignment2 Fall2014    */
-/* 10/03/13 Che-Wei Chang  updated for EECS22 assignment2 Fall2013   */
-/* 10/02/12 Weiwei Chen  updated for EECS22 assignment2 Fall2012     */
-/* 09/27/11 Weiwei Chen  updated for EECS22 assignment2 Fall2011     */
-/* 11/11/04 Rainer Doemer:   update for EECS 10 formatting style     */
-/* 11/10/04 Rustam Sengupta: initial template version                */
+/* Asif Mahmud														 */
+/* PhotoLab.c: homework assignment, Fall 2014                        */
+/*                                                                   */    
 /*********************************************************************/
 
 
@@ -24,15 +18,13 @@
 #include "Image.h"
 
 
-/* change */
-
 /*** function declarations ***/
 
 /* print a menu */
-void	PrintMenu();
+void PrintMenu();
 
 /* Test all functions */
-void	AutoTest(IMAGE *image);
+void AutoTest(IMAGE *image);
 
 
 
@@ -44,9 +36,8 @@ int	main(){
 
 	/*  Please replace the following code with proper menu  */
 	/*	with function calls for DIP operations		*/
- 	int		FileNotRead ; 
-	IMAGE 	*image;
-
+ 	IMAGE 	*image;
+	int		FileNotRead ; 
 	char	fname[SLEN];
 
 	int		choice;
@@ -54,7 +45,7 @@ int	main(){
 	int		target_r ; 
 	int		target_g ; 
 	int		target_b ;
-	int		threshold ;
+	int		threshold;
 	
 	double	factor_r ; 
 	double	factor_g ; 
